@@ -1,0 +1,7 @@
+docker pull postgres - скачивание образа postgres
+docker build -t d_img:latest . - создание образа, запускается из папки с Dockerfile
+docker run -d -p 5432:5432 --name d_cont d_img:latest - создание контейнера
+docker exec -it d_cont psql -U dbuser -d dbname - запуск контейнера в интерактивной среде с интерпретатором СУБД postgres
+docker volume create d_data - создание тома для постоянного хранения данных
+docker run -d -p 5432:5432 --name d_cont d_img:latest -v /d_data:/var/lib/postgresql/data - создание контейнера с доступом к данным,
+хранящихся извне
