@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+ dbpost:
+  image: postgres:latest
+  environment:
+   POSTGRES_DB: lr8db
+   POSTGRES_USER: lr8usr
+   POSTGRES_PASSWORD: lr8pass
+  volumes:
+   - ./LR-8-TVA.sql:/docker-entrypoint-initdb.d/LR-8-TVA.sql
+  ports:
+   - 5432:5432
