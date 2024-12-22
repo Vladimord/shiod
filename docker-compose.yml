@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+ dbpost:
+  image: postgres:latest
+  environment:
+   POSTGRES_DB: lr9db
+   POSTGRES_USER: lr9usr
+   POSTGRES_PASSWORD: lr9pass
+  volumes:
+   - ./LR-9-TVA.sql:/docker-entrypoint-initdb.d/LR-9-TVA.sql
+  ports:
+   - 5432:5432
